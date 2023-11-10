@@ -31,7 +31,7 @@ const PlayBar = () => {
               </div>
               <Heart
                 className="text-white ms-4"
-                onClick={() => dispatch(addFavouriteAction(player))}
+                onClick={() => dispatch(addFavouriteAction(player?.title))}
               />
             </Col>
             <Col xs={6} md={4} className="playerControls">
