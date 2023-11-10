@@ -1,7 +1,7 @@
 import { SEARCH_ARTIST } from "../action"
 
 const initialState = {
-    search: '',
+    search: [],
 }
 
 const searchReducer = (state = initialState, action) => {

@@ -4,13 +4,29 @@ import repeat from "../assets/playerbuttons/repeat.png"
 import play from "../assets/playerbuttons/play.png"
 import prev from "../assets/playerbuttons/prev.png"
 import next from "../assets/playerbuttons/next.png"
+import { useSelector } from "react-redux"
 
 const PlayBar = () => {
+  const player = useSelector((state) => state.player.selected)
+
   return (
     <Container fluid className="fixed-bottom bg-container pt-1">
       <Row className="h-100">
-        <Col lg={10} className="offset-lg-2">
-          <Row className="row h-100 flex-column justify-content-center align-items-center">
+        <Col className="offset-lg-2">
+          <Row className="row h-100 align-items-center">
+            <Col xs={4} className="d-flex text-white align-items-center">
+              <div>
+                <img
+                  src={player?.album.cover_medium}
+                  alt=""
+                  style={{ width: "70px", height: "70px" }}
+                />
+              </div>
+              <div className="ms-2">
+                <p style={{ lineHeight: "1em" }}>{player?.artist.name}</p>
+                <p style={{ lineHeight: "1em" }}>{player?.title}</p>
+              </div>
+            </Col>
             <Col xs={6} md={4} className="playerControls">
               <div className="d-flex">
                 <a href="/">
