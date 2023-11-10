@@ -1,5 +1,6 @@
 
-
+export const ADD_TO_FAVOURITE = "ADD_TO_FAVOURITE"
+export const REMOVE_FAV_COM = "REMOVE_FAV_COM"
 export const SEARCH_ARTIST = 'SEARCH_ARTIST'
 export const ALBUM_HOME = 'ALBUM_HOME'
 export const SET_PLAYER = 'SET_PLAYER'
@@ -72,3 +73,17 @@ export const setPlayer = (selectedAlbum) => (
         payload: selectedAlbum,
     }
 )
+
+export const addFavouriteAction = (liked) => {
+    return {
+        type: ADD_TO_FAVOURITE,
+        payload: liked,
+    }
+}
+
+// export const removeFavAction = (data) => {
+//     return {
+//         type: REMOVE_FAV_COM,
+//         payload: data,
+//     }
+// }

@@ -4,10 +4,13 @@ import repeat from "../assets/playerbuttons/repeat.png"
 import play from "../assets/playerbuttons/play.png"
 import prev from "../assets/playerbuttons/prev.png"
 import next from "../assets/playerbuttons/next.png"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { Heart } from "react-bootstrap-icons"
+import { addFavouriteAction } from "../redux/action"
 
 const PlayBar = () => {
   const player = useSelector((state) => state.player.selected)
+  const dispatch = useDispatch()
 
   return (
     <Container fluid className="fixed-bottom bg-container pt-1">
@@ -24,8 +27,12 @@ const PlayBar = () => {
               </div>
               <div className="ms-2">
                 <p style={{ lineHeight: "1em" }}>{player?.artist.name}</p>
-                <p style={{ lineHeight: "1em" }}>{player?.title}</p>
+                <p style={{ lineHeight: "1em" }}>{player?.title_short}</p>
               </div>
+              <Heart
+                className="text-white ms-4"
+                onClick={() => dispatch(addFavouriteAction(player))}
+              />
             </Col>
             <Col xs={6} md={4} className="playerControls">
               <div className="d-flex">
